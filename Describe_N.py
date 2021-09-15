@@ -13,13 +13,13 @@ def solution(N, number):
         for i in range(1, n_num//2 + 1) :
             for i_num in n_lst[i] :
                 for j_num in n_lst[n_num-i] :
-                    if 1 <= i_num + j_num <= 32000 : n_lst[n_num].add(i_num + j_num);
-                    if 1 <= i_num - j_num <= 32000 : n_lst[n_num].add(i_num - j_num);
-                    if 1 <= i_num * j_num <= 32000 : n_lst[n_num].add(i_num * j_num);
-                    if 1 <= i_num // j_num <= 32000 : n_lst[n_num].add(i_num // j_num);
+                    n_lst[n_num].add(i_num + j_num)
+                    n_lst[n_num].add(i_num - j_num)
+                    n_lst[n_num].add(j_num - i_num)
+                    n_lst[n_num].add(i_num * j_num)
                     
-                    if 1 <= j_num - i_num <= 32000 : n_lst[n_num].add(j_num - i_num);
-                    if 1 <= j_num // i_num <= 32000 : n_lst[n_num].add(j_num // i_num);
+                    if j_num !=0 : n_lst[n_num].add(i_num // j_num);
+                    if i_num != 0 : n_lst[n_num].add(j_num // i_num);
 
                     if number in n_lst[n_num] :
                         return n_num
